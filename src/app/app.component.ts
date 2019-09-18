@@ -9,8 +9,10 @@ import { Quote } from './models/quote';
 })
 export class AppComponent {
   title = 'quotes';
-  isHidden = false;
+  isHidden = true;
   quotes: Quote[] = [
+    new Quote( 'hello world', 'Mark Twain', 'Orion'),
+    new Quote( 'hello world', 'Mark Twain', 'Orion'),
     new Quote( 'hello world', 'Mark Twain', 'Orion')
   ];
 

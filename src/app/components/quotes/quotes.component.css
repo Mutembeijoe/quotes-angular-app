@@ -8,5 +8,9 @@
 }
 .author{
     font-style: italic;
-    text-indent: 30px;
+    text-indent: 30%;
+}
+.bottom{
+    display:flex;
+    justify-content: space-between;
 }
