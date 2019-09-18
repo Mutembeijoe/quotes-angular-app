@@ -8,9 +8,12 @@
 }
 .author{
     font-style: italic;
-    text-indent: 30%;
+    text-indent: 10%;
 }
 .bottom{
     display:flex;
     justify-content: space-between;
+}
+.votes button{
+    margin-left:10px;
 }

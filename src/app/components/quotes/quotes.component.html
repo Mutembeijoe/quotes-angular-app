@@ -2,11 +2,15 @@
     <li *ngFor="let quote of quotes" class="list-group-item quote">
         <div class="addedBy">Added by {{quote.submittedBy}}</div>
         <div class="quoteBody">{{quote.body}}</div>
-        <div class="author">{{quote.author}}</div>
+        <div class="author">- {{quote.author}}</div>
         <div class="bottom">
             <div class="votes">
-                <i class="fa fa-thumbs-up mx-3"></i>
-                <i class="fa fa-thumbs-down"></i>
+                <button type="button" class="btn btn-primary btn-sm">
+                    <i class="fa fa-thumbs-up mx-2"></i> <span class="badge badge-light">{{quote.upvotes}}</span>
+                </button>
+                <button type="button" class="btn btn-warning btn-sm">
+                    <i class="fa fa-thumbs-down mx-2 text-danger"></i> <span class="badge badge-light">{{quote.downvotes}}</span>
+                </button>
             </div>
             <div class="time">{{quote.addedAt | date}}</div>
         </div>
