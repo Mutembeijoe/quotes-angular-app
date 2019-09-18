@@ -1,3 +1,26 @@
-<ul>
+<!-- <ul>
     <li *ngFor="let quote of quotes">{{quote.body}}</li>
+</ul> -->
+<!-- <div class="list-group"> -->
+    <!-- <div *ngFor="let quote of quotes" class="list-group-item">
+        <div class="d-flex w-100 justify-content-between">
+            <div class="time">   
+                <small>{{quote.addedAt | date}}</small>
+            </div>
+        </div>
+        <p class="mb-1">
+            {{quote.body}}
+            <br>
+            <small>{{quote.author}}</small>
+        </p>
+         -->
+    <!-- </div> -->
+<!-- </div> -->
+<ul class="list-group">
+    <li *ngFor="let quote of quotes" class="list-group-item quote">
+        <div class="time">{{quote.addedAt | date}}</div>
+        <div class="quoteBody">{{quote.body}}</div>
+        <div class="author">{{quote.author}}</div>
+        <div class="addedBy">{{quote.submittedBy}}</div>
+    </li>
 </ul>

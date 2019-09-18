@@ -1,0 +1,12 @@
+.quote{
+    display:flex;
+    flex-direction: column;
+}
+.time,.addedBy{
+    align-self: flex-end;
+    font-size: small;
+}
+.author{
+    font-style: italic;
+    text-indent: 30px;
+}

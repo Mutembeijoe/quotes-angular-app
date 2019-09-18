@@ -10,7 +10,9 @@ import { Quote } from './models/quote';
 export class AppComponent {
   title = 'quotes';
   isHidden = false;
-  quotes: Quote[] = [];
+  quotes: Quote[] = [
+    new Quote( 'hello world', 'Mark Twain', 'Orion')
+  ];
 
   submitForm(obj: FormObject) {
     const newQuote = new Quote(obj.quote, obj.author, obj.submittedBy);

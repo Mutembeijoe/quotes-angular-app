@@ -1,6 +1,5 @@
 <div class="container">
-  <button class="btn btn-primary my-4" (click)="toggleForm()">Add Quote</button>
-  <app-quotes [quotes]="quotes"></app-quotes>
+  <button class="btn btn-primary mt-4" (click)="toggleForm()">Add Quote</button>
   <div class="form" [hidden]="isHidden">
     <form #form="ngForm" (ngSubmit)="submitForm(form.value)">
       <div class="form-group">
@@ -19,4 +18,5 @@
     </form>
       {{form.value | json }}
   </div>
+  <app-quotes [quotes]="quotes"></app-quotes>
 </div>
