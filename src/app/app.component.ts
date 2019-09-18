@@ -9,7 +9,7 @@ import { Quote } from './models/quote';
 })
 export class AppComponent {
   title = 'quotes';
-  quotes: Quote[];
+  quotes: Quote[] = [];
 
   submitForm(obj: FormObject) {
     const newQuote = new Quote(obj.quote, obj.author, obj.submittedBy);
