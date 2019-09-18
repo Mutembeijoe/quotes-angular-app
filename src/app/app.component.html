@@ -1,27 +1,22 @@
 <div class="container">
-  <div class="row">
-      <div class="col-sm-7">
-          <app-quotes [quotes]="quotes"></app-quotes>
+  <button class="btn btn-primary my-4" (click)="toggleForm()">Add Quote</button>
+  <app-quotes [quotes]="quotes"></app-quotes>
+  <div class="form" [hidden]="isHidden">
+    <form #form="ngForm" (ngSubmit)="submitForm(form.value)">
+      <div class="form-group">
+        <label for="quote">Quote</label>
+        <textarea ngModel="quote" #quote="ngModel" name="quote" id="quote" class="form-control" cols="10" rows="3" placeholder="Enter your quote here...."></textarea>
       </div>
-    <div class="col-sm-5">
-      <form #form="ngForm" (ngSubmit)="submitForm(form.value)">
-        <div class="form-group">
-          <label for="quote">Quote</label>
-          <textarea ngModel="quote" #quote="ngModel" name="quote" id="quote" class="form-control" cols="10" rows="3" placeholder="Enter your quote here...."></textarea>
-        </div>
-        <div class="form-group">
-          <label for="author">Author</label>
-          <input ngModel type="text" name="author" id="author" class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="submittedBy">Submitted by</label>
-          <input ngModel type="text" name="submittedBy" id="submittedBy" class="form-control">
-        </div>
-        <button class="btn btn-primary">Add Quote</button>
-      </form>
-      <div>
-        {{form.value | json }}
+      <div class="form-group">
+        <label for="author">Author</label>
+        <input ngModel type="text" name="author" id="author" class="form-control">
       </div>
-    </div>
+      <div class="form-group">
+        <label for="submittedBy">Submitted by</label>
+        <input ngModel type="text" name="submittedBy" id="submittedBy" class="form-control">
+      </div>
+      <button class="btn btn-primary">Add +</button>
+    </form>
+      {{form.value | json }}
   </div>
 </div>

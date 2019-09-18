@@ -9,6 +9,7 @@ import { Quote } from './models/quote';
 })
 export class AppComponent {
   title = 'quotes';
+  isHidden = false;
   quotes: Quote[] = [];
 
   submitForm(obj: FormObject) {
@@ -16,6 +17,9 @@ export class AppComponent {
     this.quotes.push(newQuote);
   }
 
+  toggleForm() {
+    this.isHidden = !this.isHidden;
+  }
 
 
 
