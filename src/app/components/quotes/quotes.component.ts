@@ -1,8 +1,5 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { Quote } from 'src/app/models/quote';
-import { interval, timer, Observable, observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-
 @Component({
   selector: 'app-quotes',
   templateUrl: './quotes.component.html',

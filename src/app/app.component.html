@@ -4,15 +4,63 @@
     <form #form="ngForm" (ngSubmit)="submitForm(form.value)">
       <div class="form-group">
         <label for="quote">Quote</label>
-        <textarea ngModel="quote" #quote="ngModel" name="quote" id="quote" class="form-control" cols="10" rows="3" placeholder="Enter your quote here...."></textarea>
+        <textarea 
+          ngModel 
+          #quote="ngModel" 
+          name="quote" 
+          id="quote" 
+          class="form-control" 
+          cols="10" 
+          rows="3" 
+          placeholder="Enter your quote here...."
+          required
+          minlength="50"
+          [pattern]="pattern"
+          >
+        </textarea>
+        <div *ngIf="quote.touched && quote.invalid" class="alert alert-danger">
+            <div *ngIf="quote.errors.required">This field is required</div>
+            <div *ngIf="quote.errors.minlength">The Quote must be at least 50 characters long</div>
+            <div *ngIf="quote.errors.pattern">The quote cannot contain special symbols</div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="author">Author</label>
-        <input ngModel type="text" name="author" id="author" class="form-control">
-      </div>
-      <div class="form-group">
-        <label for="submittedBy">Submitted by</label>
-        <input ngModel type="text" name="submittedBy" id="submittedBy" class="form-control">
+      <div class="form-row">
+        <div class="col">
+          <label for="author">Author</label>
+          <input 
+            ngModel 
+            type="text" 
+            #author="ngModel" 
+            name="author" 
+            id="author" 
+            class="form-control" 
+            required
+            minlength="3"
+            pattern="[a-zA-Z ]*"
+          >
+          <div *ngIf="author.touched && author.invalid" class="alert alert-danger">
+            <div *ngIf="author.errors.required">This field is Required</div>
+            <div *ngIf="author.errors.pattern">Author name must contain only alpha-numerical characters</div>
+            <div *ngIf="author.errors.minlength">Author name must be more than 3 characters</div>
+          </div>
+        </div>
+        <div class="col">
+          <label for="submittedBy">Submitted by</label>
+          <input 
+            ngModel 
+            type="text" 
+            #submittedBy="ngModel" 
+            name="submittedBy" 
+            id="submittedBy" 
+            class="form-control" 
+            required
+            minlength="3"
+            >
+          <div *ngIf="submittedBy.touched && submittedBy.invalid" class="alert alert-danger">
+              <div *ngIf="submittedBy.errors.required">This field is Required</div>
+              <div *ngIf="submittedBy.errors.minlength">Your username must be more than 3 characters</div>
+          </div>
+        </div>
       </div>
       <button class="btn btn-primary">Add +</button>
     </form>

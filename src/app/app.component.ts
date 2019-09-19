@@ -8,6 +8,7 @@ import { Quote } from './models/quote';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  pattern = `[A-Za-z0-9 _.,!"'/$]*`;
   title = 'quotes';
   isHidden = true;
   quotes: Quote[] = [
@@ -26,6 +27,9 @@ export class AppComponent {
 
   toggleForm() {
     this.isHidden = !this.isHidden;
+  }
+  onFocus(author) {
+    console.log(author)
   }
 
 
