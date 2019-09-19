@@ -29,7 +29,7 @@ export class AppComponent {
     this.isHidden = !this.isHidden;
   }
   onFocus(author) {
-    console.log(author)
+    console.log(author);
   }
 
 
