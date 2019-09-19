@@ -1,0 +1,10 @@
+.submit-button{
+    display:flex;
+    justify-content: center;
+}
+.submit-button button{
+    width:100px;
+}
+.form-control.ng-invalid.ng-touched{
+    border:1px solid red;
+}

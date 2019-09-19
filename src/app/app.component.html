@@ -1,5 +1,5 @@
 <div class="container">
-  <button class="btn btn-primary mt-4" (click)="toggleForm()">Add Quote</button>
+  <button class="btn btn-secondary btn-small my-4" (click)="toggleForm()">add a quote</button>
   <div class="form" [hidden]="isHidden">
     <form #form="ngForm" (ngSubmit)="submitForm(form.value)">
       <div class="form-group">
@@ -24,7 +24,7 @@
             <div *ngIf="quote.errors.pattern">The quote cannot contain special symbols</div>
         </div>
       </div>
-      <div class="form-row">
+      <div class="form-row my-4">
         <div class="col">
           <label for="author">Author</label>
           <input 
@@ -62,9 +62,10 @@
           </div>
         </div>
       </div>
-      <button class="btn btn-primary" [disabled]="form.invalid">Add +</button>
+      <div class="submit-button">
+          <button class="btn btn-primary text-center" [disabled]="form.invalid">Add</button>
+      </div>
     </form>
-      {{form.value | json }}
   </div>
   <app-quotes [quotes]="quotes"></app-quotes>
 </div>
