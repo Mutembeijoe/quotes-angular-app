@@ -5,7 +5,7 @@ export class Quote {
     constructor(private body: string, private author: string, private submittedBy: string) {
         this.upvotes = 0;
         this.downvotes = 0;
-        this.addedAt = new Date(2015, 7, 10);
+        this.addedAt = new Date();
     }
 
     get Age() {
