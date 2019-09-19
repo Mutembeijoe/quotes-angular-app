@@ -5,11 +5,15 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { QuotesComponent } from './components/quotes/quotes.component';
+import { TimePipe } from './pipes/time.pipe';
+import { QuoteTimeDetailComponent } from './components/quote-time-detail/quote-time-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    QuotesComponent
+    QuotesComponent,
+    TimePipe,
+    QuoteTimeDetailComponent
   ],
   imports: [
     BrowserModule,

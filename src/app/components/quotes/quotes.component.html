@@ -5,14 +5,14 @@
         <div class="author">- {{quote.author}}</div>
         <div class="bottom">
             <div class="votes">
-                <button type="button" class="btn btn-primary btn-sm">
-                    <i class="fa fa-thumbs-up mx-2"></i> <span class="badge badge-light">{{quote.upvotes}}</span>
+                <button type="button" (click)="upVote(quote)" class="btn btn-primary btn-sm">
+                    <i class="fa fa-thumbs-up mx-2"></i><span class="badge badge-light">{{quote.upvotes}}</span>
                 </button>
-                <button type="button" class="btn btn-warning btn-sm">
+                <button type="button" (click)="downVote(quote)" class="btn btn-warning btn-sm">
                     <i class="fa fa-thumbs-down mx-2 text-danger"></i> <span class="badge badge-light">{{quote.downvotes}}</span>
                 </button>
             </div>
-            <div class="time">{{quote.addedAt | date}}</div>
+            <app-quote-time-detail [quote]='quote'></app-quote-time-detail>
         </div>
         
         
