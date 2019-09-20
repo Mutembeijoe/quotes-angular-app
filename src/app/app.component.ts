@@ -9,7 +9,7 @@ import { FirebaseCrudService } from './services/firebase-crud.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(db: FirebaseCrudService) {
+  constructor(private db: FirebaseCrudService) {
   }
   pattern = `[A-Za-z0-9 _.,!"'/$]*`;
   title = 'quotes';
@@ -26,6 +26,7 @@ export class AppComponent {
   submitForm(obj: FormObject) {
     const newQuote = new Quote(obj.quote, obj.author, obj.submittedBy);
     this.quotes.push(newQuote);
+    this.db.createQuote(newQuote);
   }
 
   toggleForm() {
