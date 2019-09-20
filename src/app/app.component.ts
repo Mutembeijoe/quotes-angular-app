@@ -1,5 +1,5 @@
 import { FormObject } from './models/form-object';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Quote } from './models/quote';
 import { FirebaseCrudService } from './services/firebase-crud.service';
 
@@ -8,25 +8,26 @@ import { FirebaseCrudService } from './services/firebase-crud.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  constructor(private db: FirebaseCrudService) {
-  }
+export class AppComponent implements OnInit {
+
   pattern = `[A-Za-z0-9 _.,!"'/$]*`;
   title = 'quotes';
   isHidden = true;
-  quotes: Quote[] = [
-    // tslint:disable-next-line: max-line-length
-    new Quote( 'Lorem ipsuni distinctio tempora asperiores possimus beatae, libero architecto eos adipisci, iure dolorem fugiat consectetur at obcaecati eum illum eligendi commodi. Ne?', 'Mark Twain', 'Orion'),
-    // tslint:disable-next-line: max-line-length
-    new Quote( 'Lorem ipsuni distinctio tempora asperiores possimus beatae, libero architecto eos adipisci, iure dolorem fugiat consectetur at obcaecati eum illum eligendi commodi. Ne?', 'Abraham Lincoln', 'Joe'),
-    // tslint:disable-next-line: max-line-length
-    new Quote( 'Lorem ipsuni distinctio tempora asperiores possimus beatae, libero architecto eos adipisci, iure dolorem fugiat consectetur at obcaecati eum illum eligendi commodi. Ne?', 'Mwai Kibaki', 'Dan')
-  ];
+  $quotes;
+
+  constructor(private db: FirebaseCrudService) {
+
+  }
+
+  ngOnInit() {
+    this.$quotes = this.db.getQuotes().valueChanges();
+  }
+
 
   submitForm(obj: FormObject) {
     const newQuote = new Quote(obj.quote, obj.author, obj.submittedBy);
-    this.quotes.push(newQuote);
     this.db.createQuote(newQuote);
+    this.isHidden = true;
   }
 
   toggleForm() {

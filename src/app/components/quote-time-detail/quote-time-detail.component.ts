@@ -9,12 +9,22 @@ import { Quote } from 'src/app/models/quote';
 })
 export class QuoteTimeDetailComponent implements OnInit {
   @Input()quote: Quote;
+  age;
   constructor() { }
   time = timer(1000, 60000).pipe(
-    map(() => this.quote.Age)
+    map(() => this.getAge())
   );
 
   ngOnInit() {
+    this.getAge();
+
   }
+
+  getAge() {
+    const now = Date.now();
+    const age = this.quote.addedAt;
+    const milliseconds =  now - age;
+    return milliseconds;
+}
 
 }

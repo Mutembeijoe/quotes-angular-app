@@ -1,17 +1,11 @@
 export class Quote {
     upvotes;
     downvotes;
-    private addedAt;
+    addedAt;
     constructor(private body: string, private author: string, private submittedBy: string) {
         this.upvotes = 0;
         this.downvotes = 0;
-        this.addedAt = new Date();
-    }
-
-    get Age() {
-        const now = Date.now();
-        const milliseconds =  now - this.addedAt;
-        return milliseconds;
+        this.addedAt = Date.now();
     }
 }
 

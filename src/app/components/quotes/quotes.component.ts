@@ -6,7 +6,7 @@ import { Quote } from 'src/app/models/quote';
   styleUrls: ['./quotes.component.css']
 })
 export class QuotesComponent implements OnInit {
-  @Input()quotes;
+  @Input()$quotes;
   constructor() { }
   ngOnInit() {
   }

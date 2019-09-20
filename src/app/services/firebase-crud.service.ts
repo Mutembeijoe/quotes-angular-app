@@ -18,7 +18,7 @@ export class FirebaseCrudService {
     return this.quotes.push(quote);
   }
 
-  getQuotes(quote: Quote) {
+  getQuotes() {
      return this.quotes;
   }
 }
