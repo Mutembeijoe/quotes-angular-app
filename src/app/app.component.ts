@@ -1,6 +1,7 @@
 import { FormObject } from './models/form-object';
 import { Component } from '@angular/core';
 import { Quote } from './models/quote';
+import { FirebaseCrudService } from './services/firebase-crud.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,8 @@ import { Quote } from './models/quote';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  constructor(db: FirebaseCrudService) {
+  }
   pattern = `[A-Za-z0-9 _.,!"'/$]*`;
   title = 'quotes';
   isHidden = true;
