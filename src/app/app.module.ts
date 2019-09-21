@@ -10,6 +10,7 @@ import { QuotesComponent } from './components/quotes/quotes.component';
 import { TimePipe } from './pipes/time.pipe';
 import { QuoteTimeDetailComponent } from './components/quote-time-detail/quote-time-detail.component';
 import { environment } from 'src/environments/environment';
+import { HighlightQuoteDirective } from './directives/highlight-quote.directive';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { environment } from 'src/environments/environment';
     AppComponent,
     QuotesComponent,
     TimePipe,
-    QuoteTimeDetailComponent
+    QuoteTimeDetailComponent,
+    HighlightQuoteDirective
   ],
   imports: [
     BrowserModule,
