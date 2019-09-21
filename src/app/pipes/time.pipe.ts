@@ -11,12 +11,11 @@ export class TimePipe implements PipeTransform {
     if ( minutes < 1 ) {
       return `Just now`;
     } else if (minutes >= 60 && minutes < 1440) {
-      console.log(minutes);
       return `About ${(minutes / 60).toFixed(0)} hours ago`;
     } else if (minutes >= 1 && minutes < 60 ) {
       return `About ${minutes} minutes ago `;
     } else if (minutes >= 1440 && minutes <= 10080 ) {
-      return `About ${(minutes / 1440).toFixed(0)} days ago`;
+      return `About ${(minutes / 1440).toFixed(0)} day(s) ago`;
     } else if (minutes >= 10080 && minutes <= 14400 ) {
       return `About a week ago`;
     } else {

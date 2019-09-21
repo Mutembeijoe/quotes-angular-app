@@ -7,7 +7,7 @@ import { Quote } from '../models/quote';
 })
 export class FirebaseCrudService {
 
-  quotes: AngularFireList<Quote> = null;
+  quotes: AngularFireList<Quote>;
   private baseUrl = '/quotes';
 
   constructor(private db: AngularFireDatabase) {
@@ -20,5 +20,17 @@ export class FirebaseCrudService {
 
   getQuotes() {
      return this.quotes;
+  }
+
+  changeVote(key, value) {
+    return this.quotes.update(key, value);
+  }
+
+  downvoteQuote(key, value) {
+    return this.quotes.update(key, value);
+  }
+
+  deleteQuote(key) {
+    return this.quotes.remove(key);
   }
 }

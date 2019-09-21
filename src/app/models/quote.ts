@@ -1,4 +1,5 @@
 export class Quote {
+    key: string;
     upvotes;
     downvotes;
     addedAt;

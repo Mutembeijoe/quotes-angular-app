@@ -2,6 +2,7 @@ import { FormObject } from './models/form-object';
 import { Component, OnInit } from '@angular/core';
 import { Quote } from './models/quote';
 import { FirebaseCrudService } from './services/firebase-crud.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +21,13 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.$quotes = this.db.getQuotes().valueChanges();
+    this.$quotes = this.db.getQuotes().snapshotChanges()
+    .pipe(
+      map(changes => changes.map(c =>
+        ({key: c.payload.key, ...c.payload.val()})
+      )
+    )
+    );
   }
 
 

@@ -11,6 +11,7 @@ import { TimePipe } from './pipes/time.pipe';
 import { QuoteTimeDetailComponent } from './components/quote-time-detail/quote-time-detail.component';
 import { environment } from 'src/environments/environment';
 
+
 @NgModule({
   declarations: [
     AppComponent,
