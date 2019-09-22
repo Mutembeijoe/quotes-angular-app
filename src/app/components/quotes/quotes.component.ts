@@ -1,14 +1,14 @@
 import { FirebaseCrudService } from './../../services/firebase-crud.service';
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { Quote } from 'src/app/models/quote';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
 @Component({
   selector: 'app-quotes',
   templateUrl: './quotes.component.html',
   styleUrls: ['./quotes.component.css']
 })
 export class QuotesComponent implements OnInit {
-  @Input()$quotes: Observable<Quote>;
+  @Input()$quotes: Observable<Quote[]>;
   constructor(private db: FirebaseCrudService) { }
   ngOnInit() {
   }
